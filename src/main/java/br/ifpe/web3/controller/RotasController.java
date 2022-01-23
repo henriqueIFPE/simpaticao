@@ -10,4 +10,14 @@ public class RotasController {
 	public String Home() {
 		return "index";
 	}
+	
+	@GetMapping("/sobre")
+	public String sobre() {
+		return "sobre";
+	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 }
