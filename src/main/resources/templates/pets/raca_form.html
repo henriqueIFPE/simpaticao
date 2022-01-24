@@ -17,20 +17,11 @@
 		<div class="px-4">
 
 			<div class="table-wrapper col-sm-12 col-md-8">
-				<h4>Funcionarios</h4>
+				<h4>Cadastrar Raça</h4>
 				
-				<form action="/inserirPet" method="post" th:object="${pet}">
+				<form action="/inserirRaca" method="post" th:object="${raca}">
 					<input type="text" class="form-control"
-						th:field="*{idade}" placeholder="idade">
-					<input type="text" class="form-control"
-						th:field="*{nome}" placeholder="Nome">
-					<input type="text" class="form-control"
-						th:field="*{raca}" placeholder="raca">
-					<select class="form-control" th:field="*{raca}">
-						<option value="0">Selecione a raça do mascote</option>
-						<option th:each="raca : ${racas}" th:value="${raca.codigo}"
-							th:text="${raca.nome}" />
-					</select>
+						th:field="*{nome}" placeholder="nome">
 					
 					
 					</select> 
@@ -42,7 +33,7 @@
 						</ul>
 					</div>
 					
-					<button type="submit" class="btn btn-secondary">Salvar Funcionario</button>
+					<button type="submit" class="btn btn-secondary">Salvar</button>
 
 				</form>
 				</div>
@@ -53,9 +44,8 @@
 					<!--Table head-->
 					<thead>
 						<tr>
-							<th class="th-lg">idade</th>
+							<th class="th-lg">codigo</th>
 							<th class="th-lg">Nome</th>
-							<th class="th-lg">raca</th>
 							<th class="th-lg">+++</th>
 						</tr>
 					</thead>
@@ -63,12 +53,11 @@
 
 					<!--Table body-->
 					<tbody>
-						<tr th:each="pet : ${pets}">
-							<td th:text="${pet.idade}"></td>
-							<td th:text="${pet.nome}"></td>
-							<td th:text="${pet.raca}"></td>
-							<td><a th:href="@{/formFunc/editar/{codigo}(codigo=${pet.codigo})}">Editar</a> 
-							<a th:href="@{/formFunc/excluirFuncionario/{codigo}(codigo=${pet.codigo})}">Excluir</a>
+						<tr th:each="raca : ${racas}">
+							<td th:text="${raca.codigo}"></td>
+							<td th:text="${raca.nome}"></td>
+							<td><a th:href="@{/formFunc/editar/{codigo}(codigo=${raca.codigo})}">Editar</a> 
+							<a th:href="@{/formFunc/excluirFuncionario/{codigo}(codigo=${raca.codigo})}">Excluir</a>
 							</td>
 						</tr>
 

@@ -8,12 +8,11 @@ public class Pet {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "codigo_mascote")
 	private Integer codigo;
 	
-	@Column(name = "nome_mascote", length = 50)
+	@Column(length = 50)
 	private String nome;
-	@Column(name = "raca_mascote", length = 30)
+	@Column( length = 30)
 	private String raca;
 	
 	private Integer Idade;

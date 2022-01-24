@@ -26,6 +26,11 @@
 						th:field="*{nome}" placeholder="Nome">
 					<input type="text" class="form-control"
 						th:field="*{raca}" placeholder="raca">
+					<select class="form-control" th:field="*{raca}">
+						<option value="0">Selecione a raça do mascote</option>
+						<option th:each="raca : ${racas}" th:value="${raca.codigo}"
+							th:text="${raca.nome}" />
+					</select>
 					
 					
 					</select> 
@@ -33,15 +38,18 @@
 					<div th:if="${#fields.hasErrors('*')}">
 						<ul>
 							<li th:each="erro : ${#fields.errors('*')}" th:text="${erro}"
-								class="alert-danger">
+								class="alert-danger"></li>
 						</ul>
 					</div>
-					<input type="hidden" id="codigo"  th:value="${pets.codigo}">
+					
 					<button type="submit" class="btn btn-secondary">Salvar Funcionario</button>
 
 				</form>
 				</div>
-				<table>
+				
+				<div>
+
+				<table class="table">
 					<!--Table head-->
 					<thead>
 						<tr>
@@ -58,9 +66,9 @@
 						<tr th:each="pet : ${pets}">
 							<td th:text="${pet.idade}"></td>
 							<td th:text="${pet.nome}"></td>
-							<td th:text="${petc.raca}"></td>
-							<td><a th:href="@{/formFunc/editar/{codigo}(codigo=${func.codigo})}">Editar</a> 
-							<a th:href="@{/formFunc/excluirFuncionario/{codigo}(codigo=${func.codigo})}">Excluir</a>
+							<td th:text="${pet.raca}"></td>
+							<td><a th:href="@{/formFunc/editar/{codigo}(codigo=${pet.codigo})}">Editar</a> 
+							<a th:href="@{/formFunc/excluirFuncionario/{codigo}(codigo=${pet.codigo})}">Excluir</a>
 							</td>
 						</tr>
 
@@ -68,12 +76,8 @@
 					<!--Table body-->
 				</table>
 				<!--Table-->
-			</div>
+				</div>
 
-		</div>
-
-	</div>
-	<!-- Table with panel -->
 
 
 </body>
