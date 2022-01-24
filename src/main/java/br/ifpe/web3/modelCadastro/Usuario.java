@@ -17,12 +17,16 @@ public class Usuario extends Pessoa {
 	private String login;
 	@Column(length = 40, nullable = false)
 	private String senha;
+	@Column(length = 11)
+	private String cpf;	
 	@Enumerated(EnumType.STRING)
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private Perfil perfil;
 	@Enumerated(EnumType.STRING)
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private SituacaoUsuario situacaoUsuario;
+	
+	
 	public String getNome() {
 		return nome;
 	}
@@ -53,6 +57,13 @@ public class Usuario extends Pessoa {
 	public void setSituacaoUsuario(SituacaoUsuario situacaoUsuario) {
 		this.situacaoUsuario = situacaoUsuario;
 	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
 	
 	
 	

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns="http://www.w3.org/1999/xhtml">
+
+<div th:replace="fragments/header :: headerBlock"></div>
+
+
+<body>
+
+	<!-- Table with panel -->
+	<div class="card card-cascade narrower">
+
+	<div th:replace="fragments/header :: navBar"></div>
+
+		<!--/Card image-->
+
+		<div class="px-4">
+
+			<div class="table-wrapper col-sm-12 col-md-8">
+				<h4>Cadastro de Usuarios</h4>
+				
+				<form action="/inserirUsuario" method="post" th:object="${usuario}">
+					<input type="text" class="form-control"
+						th:field="*{nome}" placeholder="nome">
+					<input type="email" class="form-control"
+						th:field="*{email}" placeholder="Email">					
+					<input type="text" class="form-control"
+						th:field="*{login}" placeholder="login">
+					<input type="password" class="form-control"
+						th:field="*{senha}" placeholder="senha">
+					
+					<input type="text" class="form-control"
+						th:field="*{cpf}" placeholder="CPF">
+									
+
+
+					
+					
+					</select> 
+					<div th:if="${mensagem != null}" th:text="${mensagem}" class="alert-success"></div>
+					<div th:if="${#fields.hasErrors('*')}">
+						<ul>
+							<li th:each="erro : ${#fields.errors('*')}" th:text="${erro}"
+								class="alert-danger"></li>
+						</ul>
+					</div>
+					
+					<button type="submit" class="btn btn-secondary">Salvar Funcionario</button>
+
+				</form>
+				</div>
+				
+				<div>
+
+				<table class="table">
+					<!--Table head-->
+					<thead>
+						<tr>
+							<th class="th-lg">codigo</th>
+							<th class="th-lg">Nome</th>
+							<th class="th-lg">login</th>
+							<th class="th-lg">email</th>
+							<th class="th-lg">CPF</th>
+							<th class="th-lg">UF</th>
+							<th class="th-lg">Cidade</th>
+							<th class="th-lg">CEP</th>
+							<th class="th-lg">Numero</th>
+							
+							<th class="th-lg">+++</th>
+						</tr>
+					</thead>
+					<!--Table head-->
+
+					<!--Table body-->
+					<tbody>
+						<tr th:each="user : ${usuarios}">
+							<td th:text="${user.codigo}"></td>
+							<td th:text="${user.nome}"></td>
+							<td th:text="${user.login}"></td>
+							<td th:text="${user.email}"></td>
+							<td th:text="${user.cpf}"></td>
+							<td th:text="${user.uf}"></td>
+							<td th:text="${user.cidade}"></td>
+							<td th:text="${user.cep}"></td>
+							<td th:text="${user.casa}"></td>
+							<td><a th:href="@{/formFunc/editar/{codigo}(codigo=${user.codigo})}">Editar</a> 
+							<a th:href="@{/formFunc/excluirFuncionario/{codigo}(codigo=${user.codigo})}">Excluir</a>
+							</td>
+						</tr>
+
+					</tbody>
+					<!--Table body-->
+				</table>
+				<!--Table-->
+				</div>
+
+
+
+</body>
+</html>
