@@ -13,11 +13,17 @@ public class RotasController {
 	
 	@GetMapping("/sobre")
 	public String sobre() {
-		return "sobre";
+		return "about";
 	}
 	
 	@GetMapping("/login")
 	public String login() {
 		return "login";
 	}
+	
+	@GetMapping("/home")
+	public String HomeAdmin() {
+		return "home";
+	}
+	
 }
