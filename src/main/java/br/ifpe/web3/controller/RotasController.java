@@ -3,6 +3,8 @@ package br.ifpe.web3.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import br.ifpe.web3.modelCadastro.Usuario;
+
 @Controller
 public class RotasController {
 
@@ -29,6 +31,11 @@ public class RotasController {
 	@GetMapping("/login")
 	public String login() {
 		return "login";
+	}
+	
+	@GetMapping("/registro")
+	public String registro(Usuario usuario) {
+		return "registro";
 	}
 	
 	@GetMapping("/home")

@@ -17,7 +17,7 @@ public class Usuario extends Pessoa {
 	private String login;
 	@Column(length = 40, nullable = false)
 	private String senha;
-	@Column(length = 11)
+	@Column(length = 13)
 	private String cpf;	
 	@Enumerated(EnumType.STRING)
 	@Column(length = 15)
