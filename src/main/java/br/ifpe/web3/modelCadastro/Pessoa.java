@@ -1,13 +1,21 @@
 package br.ifpe.web3.modelCadastro;
 
-import javax.persistence.MappedSuperclass;
-
 import java.time.LocalDate;
+import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Type;
 
 @MappedSuperclass
-public class Pessoa {
+public abstract class Pessoa {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 	
@@ -15,6 +23,19 @@ public class Pessoa {
 	private String email;
 	private LocalDate dataNascimento;
 	private Endereco endereco;
+	@Type(type="yes_no")
+	private boolean ativo;
+	@ManyToOne
+	@JoinColumn(name="usuario_criador")
+	private Usuario criadoPor;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataCriacao;	
+	@ManyToOne
+	@JoinColumn(name="usuario_alterador")
+	private Usuario alteradorPor;
+//	@Version
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataUltimaAtualizacao;
 	
 	
 	public Integer getCodigo() {
@@ -47,4 +68,36 @@ public class Pessoa {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	public boolean isAtivo() {
+		return ativo;
+	}
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+	public Usuario getCriadoPor() {
+		return criadoPor;
+	}
+	public void setCriadoPor(Usuario criadoPor) {
+		this.criadoPor = criadoPor;
+	}
+	public Date getDataCriacao() {
+		return dataCriacao;
+	}
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+	public Usuario getAlteradorPor() {
+		return alteradorPor;
+	}
+	public void setAlteradorPor(Usuario alteradorPor) {
+		this.alteradorPor = alteradorPor;
+	}
+	public Date getDataUltimaAtualizacao() {
+		return dataUltimaAtualizacao;
+	}
+	public void setDataUltimaAtualizacao(Date dataUltimaAtualizacao) {
+		this.dataUltimaAtualizacao = dataUltimaAtualizacao;
+	}
+	
+	
 }

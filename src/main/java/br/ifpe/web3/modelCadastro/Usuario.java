@@ -8,7 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import br.ifpe.web3.acesso.*;
-import br.ifpe.web3.modelCadastro.SituacaoUsuario;
+import br.ifpe.web3.acesso.Perfil;
 
 @Entity
 public class Usuario extends Pessoa {
@@ -21,9 +21,11 @@ public class Usuario extends Pessoa {
 	private String senha;
 	@Column(length = 13)
 	private String cpf;	
+	
 	@Enumerated(EnumType.STRING)
 	@Column(length = 15)
 	private Perfil perfil;
+	
 	@Enumerated(EnumType.STRING)
 	@Column(length = 15)
 	private SituacaoUsuario situacaoUsuario;
@@ -65,11 +67,8 @@ public class Usuario extends Pessoa {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public void setDataCriacao(Date date) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+
+
 	
 	
 	

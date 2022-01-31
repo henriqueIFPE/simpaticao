@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.ifpe.web3.dao.PetDAO;
 import br.ifpe.web3.modelCadastro.Pet;
 import br.ifpe.web3.modelCadastro.Porte;
+import br.ifpe.web3.util.ServiceException;
 
 @Service
 public class PetServices {
@@ -41,9 +42,6 @@ public class PetServices {
 		petDao.delete(entity);
 	}
 
-
-	
-	
 	
 	
 	

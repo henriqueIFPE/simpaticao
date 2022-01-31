@@ -25,7 +25,7 @@ public class UsuarioService {
 		Usuario usuario = new Usuario();
 		usuario.setAtivo(true);
 		usuario.setLogin("admin");
-		usuario.setSenha("adm123");
+		usuario.setSenha("admin123");
 		usuario.setPerfil(Perfil.ADMINISTRADOR);
 		usuario.setNome("Administrador");
 		usuario.setSituacaoUsuario(SituacaoUsuario.ATIVO);
@@ -40,7 +40,7 @@ public class UsuarioService {
 	
 	
 	public void inserirUsuario(Usuario usuario) throws ServiceException {
-		usuario.setSenha(util.md5(usuario.getSenha()));
+		usuario.setSenha(Util.md5(usuario.getSenha()));
 		usuario.setDataCriacao(new Date());
 		if (this.usuariodao.existsByLogin(usuario.getLogin()) == false) {
 			this.usuariodao.save(usuario);
@@ -71,6 +71,13 @@ public class UsuarioService {
 
 	public void deleteById(Integer id) {
 		usuariodao.deleteById(id);
+	}
+
+
+	
+	public String obterQuantidade() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
