@@ -13,7 +13,7 @@
 
 
 	<div class="header-main">
-		<div class="container-fluid" th:replace="/fragments/header :: navBar">
+		<div class="container-fluid" th:replace="/fragments/basico/header :: navBar">
 				Navbar
 		</div>
     </div>
@@ -34,7 +34,7 @@
     		<div class="email_box">
                     <div class="input_main">
                        <div class="container">
-                          <form action="/logar">
+                          <form method="post" action="/efetuarLogin" th:object="${usuario}">
                             <div class="form-group">
                               <input type="text" class="email-bt" placeholder="Digite o seu login" name="login">
                             </div>
@@ -60,7 +60,7 @@
 	<!-- Table with panel -->
 
 		<!-- section footer start -->
-    <div class="section_footer" th:replace="fragments/footer :: rodape">
+    <div class="section_footer" th:replace="fragments/basico/footer :: rodape">
     	Rodape
     </div>	<!-- section footer end -->
 

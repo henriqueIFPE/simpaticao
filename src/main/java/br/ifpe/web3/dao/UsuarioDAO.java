@@ -6,9 +6,9 @@ import br.ifpe.web3.modelCadastro.Usuario;
 
 public interface UsuarioDAO extends JpaRepository<Usuario, Integer>{
 
-	//public Usuario findByLoginAndSenha(String login, String senha);
+	public Usuario findByLoginAndSenha(String login, String senha);
 	
-//	public boolean existsByLogin(String login);
+	public boolean existsByLogin(String login);
 	
-//	public Usuario findByLogin(String login);
+	public Usuario findByLogin(String login);
 }

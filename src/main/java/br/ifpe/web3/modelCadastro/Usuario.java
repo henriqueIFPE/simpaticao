@@ -1,11 +1,13 @@
 package br.ifpe.web3.modelCadastro;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-import br.ifpe.web3.modelCadastro.Perfil;
+import br.ifpe.web3.acesso.*;
 import br.ifpe.web3.modelCadastro.SituacaoUsuario;
 
 @Entity
@@ -62,6 +64,10 @@ public class Usuario extends Pessoa {
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	public void setDataCriacao(Date date) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
