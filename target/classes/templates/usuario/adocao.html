@@ -46,12 +46,13 @@
                           
                             
 							<div class="form-group">
-                            <select  class="email-bt" th:field="*{usuario}">
-								<option value="0">Selecione o usuario</option>
-								<option th:each="user : ${usuarios}" th:value="${user.codigo}"
-									th:text="${user.nome}" />
-							</select>
+	                            <select  class="email-bt" th:field="*{usuario}">
+									<option value="0">Selecione o usuario</option>
+									<option th:each="user : ${usuarios}" th:value="${user.codigo}"
+										th:text="${user.nome}" />
+								</select>
 							</div>
+							
       						<div class="send_btn">
                       			<button type="submit" class="main_bt">Adotar</button>
                       		</div>
